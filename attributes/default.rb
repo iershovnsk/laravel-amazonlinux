@@ -1,5 +1,5 @@
 default['laravel-amazonlinux']['php']['version'] = '71'
-default['laravel-amazonlinux']['php']['packages'] = [ 'cli', 'common', 'curl', 'fpm', 'gd', 'json', 'mbstring', 'mcrypt', 'mysql', 'opcache', 'readline', 'zip', 'xml' ]
+default['laravel-amazonlinux']['php']['packages'] = [ 'cli', 'common', 'curl', 'fpm', 'gd', 'json', 'mbstring', 'mcrypt', 'mysqlnd', 'opcache', 'readline', 'zip', 'xml' ]
 
 default['laravel-amazonlinux']['repo_url'] = ''
 default['laravel-amazonlinux']['app_path'] = '/var/www'
