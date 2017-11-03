@@ -6,11 +6,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
-service "apache2" do
-  action [ :stop, :disable ]
+package "nginx" do
+  action :install
 end
 
-template "/etc/nginx/sites-available/default" do
+
+template "/etc/nginx/conf.d/default.conf" do
   source "default.erb"
   owner "#{node['laravel-amazonlinux']['app_user']}"
   group "#{node['laravel-amazonlinux']['app_group']}"
