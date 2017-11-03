@@ -9,6 +9,9 @@
 include_recipe "laravel-amazonlinux::php"
 include_recipe "laravel-amazonlinux::nginx"
 
+
+
+
 deploy 'laravel-amazonlinux' do
   repo "#{node['laravel-amazonlinux']['repo_url']}"
   user "#{node['laravel-amazonlinux']['app_user']}"

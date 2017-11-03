@@ -17,6 +17,12 @@ template "/etc/nginx/sites-available/default" do
   mode '0644'
 end
 
+directory "#{node['laravel-amazonlinux']['app_path']}" do
+  owner "#{node['laravel-amazonlinux']['app_user']}"
+  group "#{node['laravel-amazonlinux']['app_group']}"
+  mode '0755'
+end
+
 service "nginx" do
   action [ :enable, :start ]
 end

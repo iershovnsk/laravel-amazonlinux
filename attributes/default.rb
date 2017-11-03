@@ -9,8 +9,8 @@ default['laravel-amazonlinux']['mysql_db'] = ''
 default['laravel-amazonlinux']['mysql_user'] = ''
 default['laravel-amazonlinux']['mysql_pass'] = ''
 
-default['laravel-amazonlinux']['app_user'] = 'www-data'
-default['laravel-amazonlinux']['app_group'] = 'www-data'
+default['laravel-amazonlinux']['app_user'] = 'nginx'
+default['laravel-amazonlinux']['app_group'] = 'nginx'
 
 default['laravel-amazonlinux']['access_key'] = ''
 default['laravel-amazonlinux']['secret_key'] = ''
