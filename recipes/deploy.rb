@@ -17,7 +17,7 @@ deploy 'laravel-amazonlinux' do
   deploy_to "#{node['laravel-amazonlinux']['app_path']}"
   keep_releases 3  
   action :deploy
-  notifies :restart, "service[php#{node['laravel-amazonlinux']['php']['version']}-fpm]"
+  notifies :restart, "service[php-fpm]"
   notifies :restart, "service[nginx]"
 end
 
