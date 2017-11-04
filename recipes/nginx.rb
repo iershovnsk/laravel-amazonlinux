@@ -30,6 +30,11 @@ directory "#{node['laravel-amazonlinux']['app_path']}" do
   mode '0755'
 end
 
+user "nginx" do
+  home "#{node['laravel-amazonlinux']['app_path']}"
+  action :modify
+end
+
 service "nginx" do
   action [ :enable, :start ]
 end
