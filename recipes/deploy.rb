@@ -10,8 +10,6 @@ include_recipe "laravel-amazonlinux::php"
 include_recipe "laravel-amazonlinux::nginx"
 
 
-
-
 deploy 'laravel-amazonlinux' do
   repo "#{node['laravel-amazonlinux']['repo_url']}"
   user "#{node['laravel-amazonlinux']['app_user']}"
@@ -23,11 +21,22 @@ deploy 'laravel-amazonlinux' do
   notifies :restart, "service[nginx]"
 end
 
-template "#{node['laravel-amazonlinux']['app_path']}/current/.env" do
-  source '.env.erb'
+#template "#{node['laravel-amazonlinux']['app_path']}/current/.env" do
+#  source '.env.erb'
+#  user "#{node['laravel-amazonlinux']['app_user']}"
+#  group "#{node['laravel-amazonlinux']['app_group']}"
+#  mode 0640
+#end
+
+execute "move .env.production to .env" do
+  command "mv .env.production .env"
+  cwd "#{node['laravel-amazonlinux']['app_path']}/current"
   user "#{node['laravel-amazonlinux']['app_user']}"
-  group "#{node['laravel-amazonlinux']['app_group']}"
-  mode 0640
 end
+
+execute "find ./storage/ -type d -exec chmod 777 {} \\;" do
+  cwd "#{node['laravel-amazonlinux']['app_path']}/current"
+end
+
 
 include_recipe "laravel-amazonlinux::composer"

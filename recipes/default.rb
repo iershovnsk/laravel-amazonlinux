@@ -10,10 +10,9 @@
 #Include all the required recipes to install/setup the deps
 include_recipe "laravel-amazonlinux::php"
 include_recipe "laravel-amazonlinux::nginx"
-#include_recipe "laravel-amazonlinux::configure_deploy"
-#include_recipe "laravel-amazonlinux::attach_efs"
-#include_recipe "laravel-amazonlinux::deploy"
-#include_recipe "laravel-amazonlinux::composer"
+include_recipe "laravel-amazonlinux::configure_deploy"
+include_recipe "laravel-amazonlinux::deploy"
+include_recipe "laravel-amazonlinux::composer"
 
 #execute "php artisan vendor:publish" do
 #  cwd "#{node['laravel-amazonlinux']['app_path']}/current"
