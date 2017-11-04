@@ -6,7 +6,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "laravel-amazonlinux::nginx"
+include_recipe "laravel-amazonlinux::php_nginx"
 
 
 deploy 'laravel-amazonlinux' do

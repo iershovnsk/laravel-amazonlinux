@@ -8,8 +8,7 @@
 #
 
 #Include all the required recipes to install/setup the deps
-include_recipe "laravel-amazonlinux::php"
-include_recipe "laravel-amazonlinux::nginx"
+include_recipe "laravel-amazonlinux::php_nginx"
 include_recipe "laravel-amazonlinux::configure_deploy"
 include_recipe "laravel-amazonlinux::deploy"
 

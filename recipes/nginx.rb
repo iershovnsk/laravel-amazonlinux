@@ -1,5 +1,5 @@
 # Cookbook Name:: laravel-amazonlinux
-# Recipe:: nginx
+# Recipe:: php_nginx
 #
 # Copyright 2017, Ivan Ershov
 #
@@ -8,6 +8,16 @@
 
 package "nginx" do
   action :install
+end
+
+package "php#{node['laravel-amazonlinux']['php']['version']}" do
+  action :install
+end
+
+node['laravel-amazonlinux']['php']['packages'].each do |pkg|
+  package "php#{node['laravel-amazonlinux']['php']['version']}-#{pkg}" do
+    action :install
+  end
 end
 
 cookbook_file "/etc/nginx/nginx.conf" do
