@@ -6,7 +6,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "laravel-amazonlinux::php"
 include_recipe "laravel-amazonlinux::nginx"
 
 

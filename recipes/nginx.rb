@@ -62,3 +62,7 @@ end
 service "nginx" do
   action [ :enable, :start ]
 end
+
+service "php-fpm" do
+  action [ :enable, :start ]
+end

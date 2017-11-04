@@ -15,7 +15,3 @@ node['laravel-amazonlinux']['php']['packages'].each do |pkg|
     action :install
   end
 end
-
-service "php-fpm" do
-  action [ :enable, :start ]
-end
