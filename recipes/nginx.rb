@@ -17,6 +17,28 @@ cookbook_file "/etc/nginx/nginx.conf" do
   group "root"
 end
 
+directory "/etc/nginx/ssl" do
+  mode 0755
+  owner "root"
+  group "root"
+end
+
+cookbook_file "/etc/nginx/ssl/key.pem" do
+  source "key.pem"
+  mode 0644
+  owner "root"
+  group "root"
+end
+  
+cookbook_file "/etc/nginx/ssl/cert.pem" do
+  source "cert.pem"
+  mode 0644
+  owner "root"
+  group "root"
+end
+
+
+
 template "/etc/nginx/conf.d/default.conf" do
   source "default.erb"
   owner "#{node['laravel-amazonlinux']['app_user']}"
