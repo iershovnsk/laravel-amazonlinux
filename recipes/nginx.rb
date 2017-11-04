@@ -15,6 +15,7 @@ cookbook_file "/etc/nginx/nginx.conf" do
   mode 0644
   owner "root"
   group "root"
+  notifies :restart, "service[nginx]"
 end
 
 directory "/etc/nginx/ssl" do
@@ -28,6 +29,7 @@ cookbook_file "/etc/nginx/ssl/key.pem" do
   mode 0644
   owner "root"
   group "root"
+  notifies :restart, "service[nginx]"
 end
   
 cookbook_file "/etc/nginx/ssl/cert.pem" do
@@ -35,15 +37,15 @@ cookbook_file "/etc/nginx/ssl/cert.pem" do
   mode 0644
   owner "root"
   group "root"
+  notifies :restart, "service[nginx]"
 end
-
-
 
 template "/etc/nginx/conf.d/default.conf" do
   source "default.erb"
   owner "#{node['laravel-amazonlinux']['app_user']}"
   group "#{node['laravel-amazonlinux']['app_group']}"
   mode '0644'
+  notifies :restart, "service[nginx]"
 end
 
 directory "#{node['laravel-amazonlinux']['app_path']}" do

@@ -4,10 +4,5 @@ default['laravel-amazonlinux']['php']['packages'] = [ 'cli', 'common', 'curl', '
 default['laravel-amazonlinux']['repo_url'] = 'git@github.com:Alavida/alavida-app.git'
 default['laravel-amazonlinux']['app_path'] = '/var/www'
 
-default['laravel-amazonlinux']['mysql_host'] = ''
-default['laravel-amazonlinux']['mysql_db'] = ''
-default['laravel-amazonlinux']['mysql_user'] = ''
-default['laravel-amazonlinux']['mysql_pass'] = ''
-
 default['laravel-amazonlinux']['app_user'] = 'nginx'
 default['laravel-amazonlinux']['app_group'] = 'nginx'
